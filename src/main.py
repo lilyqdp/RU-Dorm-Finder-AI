@@ -31,19 +31,30 @@ CAMPUS_PAGES = {
 def scrape_all_campuses():
     print("\n📡 Starting Rutgers Dorm Data Scraper...\n")
     all_data = []
+    
     for campus_name, url in CAMPUS_PAGES.items():
         all_data.extend(scrape_campus(campus_name, url))
-        time.sleep(2)  # polite delay between campus requests
+        time.sleep(1)
 
-    df = pd.DataFrame(all_data)
+    scraped_df = pd.DataFrame(all_data)
+
+    template_path = "data/raw/copy of rutgers_dorm_template.csv"
+    df_template = pd.read_csv(template_path)
+
+    # fill only these 2 columns
+    df_template["Dorm_Name"] = scraped_df["Dorm Name"]
+    df_template["Campus"] = scraped_df["Campus"]
+
+    save_path = "data/processed/rutgers_dorms.csv"
     os.makedirs("data/processed", exist_ok=True)
-    df.to_csv("data/processed/rutgers_dorms.csv", index=False, encoding="utf-8")
+    df_template.to_csv(save_path, index=False)
 
-    print("\n✅ Scraping complete! Data saved to 'data/processed/rutgers_dorms.csv'")
-    print("\nPreview of dataset:")
-    print(df.head(5))
-    return df
+    print("\n🎉 Template successfully updated (Dorm_Name + Campus)!")
+    print(f"Saved to: {save_path}")
+    print("\nPreview:")
+    print(df_template.head())
 
+    return df_template
 
 # -----------------------------------
 # STEP 3: Program Menu
