@@ -13,6 +13,7 @@ import pandas as pd
 from scraper import scrape_campus
 from data_cleaner import clean_and_encode
 from interface import run_interface
+from fill_template import fill_template 
 
 # -----------------------------------
 # STEP 1: Define base URLs
@@ -38,11 +39,10 @@ def scrape_all_campuses():
 
     scraped_df = pd.DataFrame(all_data)
 
-    template_path = "data/raw/copy of rutgers_dorm_template.csv"
+    template_path = "data/raw/machineinput_rutgers_dorm_template.csv"
     df_template = pd.read_csv(template_path)
 
-    # fill only these 2 columns
-    df_template["Dorm_Name"] = scraped_df["Dorm Name"]
+    df_template["Dorm_Name"] = scraped_df["Dorm_Name"]
     df_template["Campus"] = scraped_df["Campus"]
 
     save_path = "data/processed/rutgers_dorms.csv"
@@ -56,6 +56,7 @@ def scrape_all_campuses():
 
     return df_template
 
+
 # -----------------------------------
 # STEP 3: Program Menu
 # -----------------------------------
@@ -65,8 +66,9 @@ def main():
         print("1. Scrape Dorm Data")
         print("2. Clean & Encode Data")
         print("3. Run Dorm Search")
-        print("4. Exit")
-        choice = input("\nSelect an option (1-4): ").strip()
+        print("4. Fill Template (Dorms + Campus)")
+        print("5. Exit")
+        choice = input("\nSelect an option (1-5): ").strip()
 
         if choice == "1":
             scrape_all_campuses()
@@ -75,10 +77,12 @@ def main():
         elif choice == "3":
             run_interface()
         elif choice == "4":
+            fill_template()
+        elif choice == "5":
             print("👋 Exiting DormFinder AI. Goodbye!")
             break
         else:
-            print("⚠️ Invalid selection. Please choose a valid option (1–4).")
+            print("⚠️ Invalid selection. Please choose a valid option (1–5).")
 
 
 if __name__ == "__main__":

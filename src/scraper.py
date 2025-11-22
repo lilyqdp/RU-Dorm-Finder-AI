@@ -51,7 +51,7 @@ def scrape_campus(campus_name, campus_url):
 
             data.append({
                 "Campus": campus_name,
-                "Dorm Name": dorm_name,
+                "Dorm_Name": dorm_name,
                 "URL": link,
                 "Features": ", ".join(features)
             })

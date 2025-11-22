@@ -15,7 +15,7 @@ Dorm_Name,Campus,Type,Occupancy,Room_Style,A/C,Bathroom,Kitchen,Gym,URL
 ,,Apartment,4,2 doubles,Air Cooled*,Private ,Yes,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/silvers-apartments
 ,,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/thomas-suites
 ,,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/winkler-suites
-,,Apartment,"2, 4","2 singles, 4 singles",Yes,Private ,Yes,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/livingston-apartments
+,,Apartment,2 or 4,2 singles or 4 singles,Yes,Private ,Yes,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/livingston-apartments
 ,,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/lynton-towers-north
 ,,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/lynton-towers-south
 ,,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/quad-i
@@ -35,7 +35,7 @@ Dorm_Name,Campus,Type,Occupancy,Room_Style,A/C,Bathroom,Kitchen,Gym,URL
 ,,Dorm,2,1 double,Air Cooled*,Private ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/stonier-hall
 ,,Dorm,2,1 double,No,Communal ,No,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/wessels-hall
 ,,Dorm+,2,1 double,Yes,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/honors-college
-,,Apartment,"2, 4","2 singles, 4 singles",Yes,Private ,Yes,In Unit Apartment,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/sojourner-truth-apartments
+,,Apartment,2 or 4,2 singles or 4 singles,Yes,Private ,Yes,In Unit Apartment,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/sojourner-truth-apartments
 ,,Apartment,4,2 doubles,Yes,Private ,Yes,In Unit Apartment,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/university-center-easton-avenue
 ,,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/helyar-house
 ,,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/lippincott-hall
