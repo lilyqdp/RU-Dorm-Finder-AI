@@ -39,23 +39,17 @@ def scrape_all_campuses():
 
     scraped_df = pd.DataFrame(all_data)
 
-    template_path = "data/raw/machineinput_rutgers_dorm_template.csv"
-    df_template = pd.read_csv(template_path)
-
-    df_template["Dorm_Name"] = scraped_df["Dorm_Name"]
-    df_template["Campus"] = scraped_df["Campus"]
-
-    save_path = "data/processed/rutgers_dorms.csv"
     os.makedirs("data/processed", exist_ok=True)
-    df_template.to_csv(save_path, index=False)
 
-    print("\n🎉 Template successfully updated (Dorm_Name + Campus)!")
+    save_path = "data/processed/machineinput_rutgers_dorms.csv"
+    scraped_df.to_csv(save_path, index=False)
+
+    print("\n🎉 Scrape complete!")
     print(f"Saved to: {save_path}")
     print("\nPreview:")
-    print(df_template.head())
+    print(scraped_df.head())
 
-    return df_template
-
+    return scraped_df
 
 # -----------------------------------
 # STEP 3: Program Menu
