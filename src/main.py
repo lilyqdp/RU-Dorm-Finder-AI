@@ -11,10 +11,10 @@ import os
 import time
 import pandas as pd
 from scraper import scrape_campus
-from data_cleaner import clean_and_encode
 from interface import run_interface
-from fill_template import fill_template 
 from sort_machineinput import sort_machineinput
+from merge_data import merge_data
+
 
 
 # -----------------------------------
@@ -61,7 +61,7 @@ def main():
         print("\n=== DormFinder AI ===")
         print("1. Scrape Dorm Data")
         print("2. Sort Machine Input")
-        print("3. Fill Template (Dorms + Campus)")
+        print("3. Merge Data")
         print("4. Run Dorm Search")
         print("5. Exit")
         choice = input("\nSelect an option (1-5): ").strip()
@@ -71,7 +71,7 @@ def main():
         elif choice == "2":
             sort_machineinput()
         elif choice == "3":
-            fill_template()
+            merge_data()
         elif choice == "4":
             run_interface()
         elif choice == "5":
