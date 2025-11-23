@@ -14,6 +14,8 @@ from scraper import scrape_campus
 from data_cleaner import clean_and_encode
 from interface import run_interface
 from fill_template import fill_template 
+from sort_machineinput import sort_machineinput
+
 
 # -----------------------------------
 # STEP 1: Define base URLs
@@ -58,20 +60,20 @@ def main():
     while True:
         print("\n=== DormFinder AI ===")
         print("1. Scrape Dorm Data")
-        print("2. Clean & Encode Data")
-        print("3. Run Dorm Search")
-        print("4. Fill Template (Dorms + Campus)")
+        print("2. Sort Machine Input")
+        print("3. Fill Template (Dorms + Campus)")
+        print("4. Run Dorm Search")
         print("5. Exit")
         choice = input("\nSelect an option (1-5): ").strip()
 
         if choice == "1":
             scrape_all_campuses()
         elif choice == "2":
-            clean_and_encode()
+            sort_machineinput()
         elif choice == "3":
-            run_interface()
-        elif choice == "4":
             fill_template()
+        elif choice == "4":
+            run_interface()
         elif choice == "5":
             print("👋 Exiting DormFinder AI. Goodbye!")
             break

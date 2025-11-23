@@ -1,5 +1,3 @@
-import pandas as pd
-
 def clean_and_encode(filepath="data/processed/machineinput_rutgers_dorms.csv"):
     """
     Reads the raw dorm CSV file, encodes Yes/No values as 1/0,

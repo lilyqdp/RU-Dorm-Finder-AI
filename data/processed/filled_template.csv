@@ -1,50 +1,50 @@
 Dorm_Name,Campus,Type,Occupancy,Room_Style,A/C,Bathroom,Kitchen,Gym,URL
-Morrow Suites,Busch,Dorm,2,1 double,Air Cooled*,Communal ,No,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/allen-hall
-Silvers Apartments,Busch,Dorm+,4,2 doubles,Yes,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/best-neighborhood
-Nichols Apartments,Busch,Dorm,2,1 double,Air Cooled*,Communal ,No,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/barr-hall
+Allen Hall,Busch,Dorm,2,1 double,Air Cooled*,Communal ,No,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/allen-hall
+B.E.S.T Neighborhood,Busch,Dorm+,4,2 doubles,Yes,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/best-neighborhood
+Barr Hall,Busch,Dorm,2,1 double,Air Cooled*,Communal ,No,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/barr-hall
 Buell Apartments,Busch,Apartment,4,4 singles,Air Cooled*,Private ,Yes,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/buell-apartments
-Judson Suites,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/crosby-suites
-Allen Hall,Busch,Apartment,2,2 singles,Air Cooled*,Private ,Yes,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/johnson-apartments
-Mattia Hall,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/judson-suites
-Barr Hall,Busch,Dorm,2,1 double,Air Cooled*,Communal ,No,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/mattia-hall
-Metzger Hall,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/mccormick-suites
-Thomas Suites,Busch,Dorm,2,1 double,Air Cooled*,Communal ,No,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/metzger-hall
-Richardson Apartments,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/morrow-suites
-Johnson Apartments,Busch,Apartment,4,2 doubles,Air Cooled*,Private ,Yes,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/nichols-apartments
-Marvin Apartments,Busch,Apartment,2,2 singles,Air Cooled*,Private ,Yes,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/richardson-apartments
-Crosby Suites,Busch,Apartment,4,2 doubles,Air Cooled*,Private ,Yes,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/silvers-apartments
-B.E.S.T Neighborhood,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/thomas-suites
-McCormick Suites,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/winkler-suites
+Crosby Suites,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/crosby-suites
+Johnson Apartments,Busch,Apartment,2,2 singles,Air Cooled*,Private ,Yes,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/johnson-apartments
+Judson Suites,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/judson-suites
+Marvin Apartments,Busch,Dorm,2,1 double,Air Cooled*,Communal ,No,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/mattia-hall
+Mattia Hall,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/mccormick-suites
+McCormick Suites,Busch,Dorm,2,1 double,Air Cooled*,Communal ,No,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/metzger-hall
+Metzger Hall,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/morrow-suites
+Morrow Suites,Busch,Apartment,4,2 doubles,Air Cooled*,Private ,Yes,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/nichols-apartments
+Nichols Apartments,Busch,Apartment,2,2 singles,Air Cooled*,Private ,Yes,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/richardson-apartments
+Richardson Apartments,Busch,Apartment,4,2 doubles,Air Cooled*,Private ,Yes,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/silvers-apartments
+Silvers Apartments,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/thomas-suites
+Thomas Suites,Busch,Suite,6,3 doubles,Air Cooled*,Private ,Communal ,Sony Werblin Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/busch-campus/winkler-suites
 Winkler Suites,Busch,Apartment,2 or 4,2 singles or 4 singles,Yes,Private ,Yes,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/livingston-apartments
-Pell Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/lynton-towers-north
-Demarest Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/lynton-towers-south
-Honors College,College Ave,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/quad-i
-Hardenbergh Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/quad-ii
-Tinsley Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/quad-iii
-Clothier Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/brett-hall
-Hegeman Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/campbell-hall
-Mettler Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/clothier-hall
-Wessels Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/demarest-hall
-Leupp Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/frelinghuysen-hall
-Brett Hall,College Ave,Dorm,2,1 double,Yes,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/hardenbergh-hall
-Sojourner Truth Apartments,College Ave,Dorm,2,1 double,No,Communal ,No,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/hegeman-hall
-Campbell Hall,College Ave,Dorm,2,1 double,No,Communal ,No,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/leupp-hall
-University Center at Easton Avenue,College Ave,Dorm,2,1 double,No,Communal ,No,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/pell-hall
+Livingston Apartments,Livingston,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/lynton-towers-north
+Lynton Towers North,Livingston,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/lynton-towers-south
+Lynton Towers South,Livingston,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/quad-i
+Quad I,Livingston,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/quad-ii
+Quad II,Livingston,Dorm,2,1 double,No,Communal ,Communal ,Livingston Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/livingston/quad-iii
+Quad III,Livingston,Dorm,2,1 double,No,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/brett-hall
+Brett Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/campbell-hall
+Campbell Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/clothier-hall
+Clothier Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/demarest-hall
+Demarest Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/frelinghuysen-hall
+Frelinghuysen Hall,College Ave,Dorm,2,1 double,Yes,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/hardenbergh-hall
+Hardenbergh Hall,College Ave,Dorm,2,1 double,No,Communal ,No,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/hegeman-hall
+Hegeman Hall,College Ave,Dorm+,2,1 double,Yes,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/honors-college
+Honors College,College Ave,Dorm,2,1 double,No,Communal ,No,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/leupp-hall
+Leupp Hall,College Ave,Dorm,2,1 double,Yes,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/mettler-hall
+Mettler Hall,College Ave,Dorm,2,1 double,No,Communal ,No,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/pell-hall
+Pell Hall,College Ave,Apartment,2 or 4,2 singles or 4 singles,Yes,Private ,Yes,In Unit Apartment,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/sojourner-truth-apartments
+Sojourner Truth Apartments,College Ave,Dorm,2,1 double,Air Cooled*,Private ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/stonier-hall
 Stonier Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/tinsley-hall
-Frelinghuysen Hall,College Ave,Dorm,2,1 double,Yes,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/mettler-hall
-Jameson Hall,Cook/Douglass,Dorm,2,1 double,Air Cooled*,Private ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/stonier-hall
-Newell Apartments,Cook/Douglass,Dorm,2,1 double,No,Communal ,No,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/wessels-hall
-Voorhees Residence Hall,Cook/Douglass,Dorm+,2,1 double,Yes,Communal ,Communal ,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/honors-college
-Henderson Apartments,Cook/Douglass,Apartment,2 or 4,2 singles or 4 singles,Yes,Private ,Yes,In Unit Apartment,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/sojourner-truth-apartments
-New Gibbons,Cook/Douglass,Apartment,4,2 doubles,Yes,Private ,Yes,In Unit Apartment,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/university-center-easton-avenue
-Helyar House,Cook/Douglass,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/helyar-house
-Nicholas Hall,Cook/Douglass,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/lippincott-hall
-Lippincott Hall,Cook/Douglass,Dorm,2,1 double,Air Cooled* (G),Communal ,Communal (C & H),Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/jameson-hall
-Katzenbach Hall,Cook/Douglass,Dorm,2,1 double,Air Cooled*,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/perry-hall
-Woodbury Bunting-Cobb Hall,Cook/Douglass,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/katzenbach-hall
-Starkey Apartments,Cook/Douglass,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/nicholas-hall
-Perry Hall,Cook/Douglass,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/woodbury-bunting-cobb-hall
-Quad I,Livingston,Dorm,2,1 double,Air Cooled*,Communal ,No,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/voorhees-residence-hall
-Quad III,Livingston,Apartment,4,2 doubles,Air Cooled*,Private ,Yes,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/henderson-apartments
-Quad II,Livingston,Apartment,2,1 single,Air Cooled*,Private ,Yes,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/newell-apartments
-Livingston Apartments,Livingston,Apartment,4,2 doubles,Air Cooled*,Private ,Yes,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/starkey-apartments
+Tinsley Hall,College Ave,Apartment,4,2 doubles,Yes,Private ,Yes,In Unit Apartment,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/university-center-easton-avenue
+University Center at Easton Avenue,College Ave,Apartment,4,2 doubles,Air Cooled*,Private ,Yes,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/henderson-apartments
+Wessels Hall,College Ave,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/helyar-house
+Helyar House,Cook/Douglass,Dorm,2,1 double,Air Cooled* (G),Communal ,Communal (C & H),Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/jameson-hall
+Henderson Apartments,Cook/Douglass,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/katzenbach-hall
+Jameson Hall,Cook/Douglass,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/lippincott-hall
+Katzenbach Hall,Cook/Douglass,Apartment,2,1 single,Air Cooled*,Private ,Yes,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/newell-apartments
+Lippincott Hall,Cook/Douglass,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/nicholas-hall
+New Gibbons,Cook/Douglass,Dorm,2,1 double,Air Cooled*,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/perry-hall
+Newell Apartments,Cook/Douglass,Apartment,4,2 doubles,Air Cooled*,Private ,Yes,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/starkey-apartments
+Nicholas Hall,Cook/Douglass,Dorm,2,1 double,Air Cooled*,Communal ,No,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/voorhees-residence-hall
+Perry Hall,Cook/Douglass,Dorm,2,1 double,No,Communal ,No,College Ave Gym,https://ruoncampus.rutgers.edu/living-on-campus/college-ave/wessels-hall
+Starkey Apartments,Cook/Douglass,Dorm,2,1 double,No,Communal ,Communal ,Cook/Douglass Rec Center,https://ruoncampus.rutgers.edu/living-on-campus/cookdouglass/woodbury-bunting-cobb-hall

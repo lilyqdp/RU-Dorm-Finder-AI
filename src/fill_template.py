@@ -10,19 +10,33 @@ def fill_template():
         df_scraped = pd.read_csv(scraped)
         df_template = pd.read_csv(template)
 
-        # ensure length matches
-        if len(df_scraped) != len(df_template):
-            print("⚠️ Template rows ≠ scraped rows")
-            print("⚠️ Will only fill matching rows in order")
+        # normalize keys for match
+        df_scraped["key"] = df_scraped["Dorm_Name"].str.lower().str.replace(r'[^a-z0-9]', '', regex=True)
+        df_template["key"] = df_template["Dorm_Name"].str.lower().str.replace(r'[^a-z0-9]', '', regex=True)
 
-        n = min(len(df_scraped), len(df_template))
 
-        df_template.loc[:n-1, "Dorm_Name"] = df_scraped.loc[:n-1, "Dorm_Name"]
-        df_template.loc[:n-1, "Campus"] = df_scraped.loc[:n-1, "Campus"]
+        # merge left ON THE TEMPLATE
+        merged = df_template.merge(
+            df_scraped,
+            on="key",
+            how="left",
+            suffixes=("_template", "_scraped")
+        )
 
+        # copy these columns from scraped into template
+        cols = ["Campus", "Type", "Occupancy", "Room_Style", "A/C", "Bathroom", "Kitchen", "Gym", "URL"]
+
+        for col in cols:
+            merged[col + "_template"] = merged[col + "_scraped"]
+
+        final = merged[[c+"_template" for c in cols]]
+        final.columns = cols
+
+        df_template[cols] = final[cols]
+        df_template = df_template[df_template["Dorm_Name"] != "Marvin Apartments"].reset_index(drop=True)
         df_template.to_csv(out, index=False)
 
-        print(f"🔥 Template updated successfully → {out}")
+        print("🔥 Template filled using NAME matching (not by row number)")
 
     except Exception as e:
         print(f"⚠️ ERROR: {e}")
