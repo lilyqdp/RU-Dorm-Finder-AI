@@ -43,7 +43,7 @@ def scrape_all_campuses():
 
     os.makedirs("data/processed", exist_ok=True)
 
-    save_path = "data/processed/machineinput_rutgers_dorms.csv"
+    save_path = "data/processed/scraped_data.csv"
     scraped_df.to_csv(save_path, index=False)
 
     print("\n🎉 Scrape complete!")

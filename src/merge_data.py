@@ -6,6 +6,8 @@ def merge_data():
     human_file   = "data/processed/humaninput_rutgers_dorms.csv"
     out_file     = "data/processed/merge_data.csv"
 
+    filtered_scraped_file = "data/processed/filteredmachineinput_rutgers_dorms.csv"
+
     try:
         df_scraped = pd.read_csv(scraped_file)
         df_human = pd.read_csv(human_file)
@@ -17,13 +19,16 @@ def merge_data():
         df_scraped["Campus"] = df_scraped["Campus"].str.strip()
         df_human["Campus"] = df_human["Campus"].str.strip()
 
-        # keep ONLY name + campus from scraped
-        df_scraped = df_scraped[["Dorm_Name", "Campus"]]
+        df_filtered = df_human
 
-        # merge to keep only rows that exist in both
-        df_filtered = df_human.merge(df_scraped, on=["Dorm_Name", "Campus"])
+
+        # df_filtered = df_scraped.merge(df_human, on=["Dorm_Name", "Campus"], how="outer", suffixes=("_scraped", "_human"))
+        df_filtered[["Number_Students","Floors","Average_Room_Size","Availability", "Elevator"]] = df_scraped[["Number_Students","Floors","Average_Room_Size","Availability", "Elevator"]]
+        # df_filtered = df_filtered.drop(columns=["Contract_Type"])
 
         df_filtered.to_csv(out_file, index=False)
+
+        df_scraped.to_csv(filtered_scraped_file, index=False)
 
         print("🔥 merge done → only matching rows preserved")
         print(f"Saved: {out_file}")

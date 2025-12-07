@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+from sort_features import sort_features
 
 def normalize(name: str):
     name = name.lower()
@@ -8,7 +9,7 @@ def normalize(name: str):
 
 def sort_machineinput():
 
-    path = "data/processed/machineinput_rutgers_dorms.csv"
+    path = "data/processed/scraped_data.csv"
     df = pd.read_csv(path)
 
     desired_campus_order = [
@@ -30,7 +31,13 @@ def sort_machineinput():
     # clean artifacts
     df = df.drop(columns=["campus_rank", "name_key"])
 
-    # overwrite file
-    df.to_csv(path, index=False)
+    # SORT FEATURES
+    # print(df["Features"].apply(sort_features))
+    df_features = (df["Features"].apply(sort_features)).apply(pd.Series)
+    df = pd.concat([df.drop(columns=["Features"]), df_features], axis=1)
+
+    # write to file
+    newpath = "data/processed/machineinput_rutgers_dorms.csv"
+    df.to_csv(newpath, index=False)
 
     print("🔥 machineinput correctly sorted by (campus → name)")

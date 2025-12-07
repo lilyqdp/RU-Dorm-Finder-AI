@@ -11,6 +11,9 @@ import time
 
 BASE_URL = "https://ruoncampus.rutgers.edu"
 
+start_kw = "Type of Residence Hall:"
+end_kw   = "Room Photos"
+
 def scrape_campus(campus_name, campus_url):
     print(f"\n📍 Scraping {campus_name} Campus...")
     data = []
@@ -35,32 +38,52 @@ def scrape_campus(campus_name, campus_url):
 
     # Visit each dorm page and extract details
     for link in dorm_links:
-        try:
-            res = requests.get(link)
-            if res.status_code != 200:
-                print(f"Skipping {link} (status {res.status_code})")
-                continue
+        success = False
+        while not success:
+            try:
+                res = requests.get(link)
+                if res.status_code != 200:
+                    print(f"Skipping {link} (status {res.status_code})")
+                    continue
 
-            dorm_soup = BeautifulSoup(res.text, "html.parser")
-            dorm_name_tag = dorm_soup.find("h1")
-            dorm_name = dorm_name_tag.text.strip() if dorm_name_tag else "Unknown Dorm"
+                dorm_soup = BeautifulSoup(res.text, "html.parser")
+                dorm_name_tag = dorm_soup.find("h1")
+                dorm_name = dorm_name_tag.text.strip() if dorm_name_tag else "Unknown Dorm"
 
-            features = [li.text.strip() for li in dorm_soup.find_all("li")]
-            if not features:
-                features = ["No listed features found"]
 
-            data.append({
-                "Campus": campus_name,
-                "Dorm_Name": dorm_name,
-                "URL": link,
-                "Features": ", ".join(features)
-            })
+                full_text = dorm_soup.get_text(" ", strip=False)
+                start_index = full_text.find(start_kw)
+                # print(start_index)
+                end_index   = full_text.find(end_kw)
+                # print(end_index)
 
-            print(f"✅ {dorm_name} — {len(features)} features found.")
-            time.sleep(1)
+                # only filter from "Type of Residence Hall:" to "Room Photos" -- will break if info site changes formatting !!
+                if (start_index != -1) and (end_index != -1) and (end_index > start_index):
+                    features = full_text[start_index : end_index].strip()
+                else:
+    # [li.text.strip() for li in dorm_soup.find_all("li")]
+                    features = ["No listed features found"]
 
-        except Exception as e:
-            print(f"⚠️ Error processing {link}: {e}")
-            continue
+
+
+                data.append({
+                    "Campus": campus_name,
+                    "Dorm_Name": dorm_name,
+                    "URL": link,
+                    "Features": features
+                })
+
+                print(f"✅ {dorm_name} — {len(features)} features found.")
+                time.sleep(1)
+                
+                success = True
+
+                # raise SystemExit
+
+
+            except Exception as e:
+                print(f"⚠️ Error processing {link}: {e}")
+                print("Retrying...")
+                time.sleep(2)
 
     return data
