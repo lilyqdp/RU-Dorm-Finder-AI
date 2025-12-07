@@ -18,13 +18,18 @@ def merge_data():
 
         df_scraped["Campus"] = df_scraped["Campus"].str.strip()
         df_human["Campus"] = df_human["Campus"].str.strip()
-
         df_filtered = df_human
 
+        # drop unused columns
+        df_scraped = df_scraped.drop(columns=["URL","Type","Contract_Type"])
 
-        # df_filtered = df_scraped.merge(df_human, on=["Dorm_Name", "Campus"], how="outer", suffixes=("_scraped", "_human"))
-        df_filtered[["Number_Students","Floors","Average_Room_Size","Availability", "Elevator"]] = df_scraped[["Number_Students","Floors","Average_Room_Size","Availability", "Elevator"]]
-        # df_filtered = df_filtered.drop(columns=["Contract_Type"])
+        # merge, keeps all columns from both df -- main purpose is to maintain row order of df_human
+        df_filtered = df_scraped.merge(df_human, on=["Dorm_Name", "Campus"], how="right", suffixes=("_scraped", ""))
+
+        # fill in empty column and remove duplicate
+        df_filtered[["Number_Students","Floors","Average_Room_Size","Availability", "Elevator"]] = df_filtered[["Number_Students_scraped","Floors_scraped","Average_Room_Size_scraped","Availability_scraped", "Elevator_scraped"]]
+        df_filtered = df_filtered.drop(columns=["Number_Students_scraped","Floors_scraped","Average_Room_Size_scraped","Availability_scraped", "Elevator_scraped"])
+
 
         df_filtered.to_csv(out_file, index=False)
 
