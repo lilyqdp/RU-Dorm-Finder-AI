@@ -27,6 +27,7 @@ def merge_data():
         df_filtered = df_scraped.merge(df_human, on=["Dorm_Name", "Campus"], how="right", suffixes=("_scraped", ""))
 
         # fill in empty column and remove duplicate
+        df_filtered["Floors_scraped"] = df_filtered["Floors_scraped"].fillna(df_filtered["Floors"])
         df_filtered[["Number_Students","Floors","Average_Room_Size","Availability", "Elevator"]] = df_filtered[["Number_Students_scraped","Floors_scraped","Average_Room_Size_scraped","Availability_scraped", "Elevator_scraped"]]
         df_filtered = df_filtered.drop(columns=["Number_Students_scraped","Floors_scraped","Average_Room_Size_scraped","Availability_scraped", "Elevator_scraped"])
 

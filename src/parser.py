@@ -1,59 +1,149 @@
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.feature_extraction.text import TfidfVectorizer
 
-df = pd.read_csv("data/processed/merge_data.csv")
+# insert any query term replacements here
+term_map = {
+    "-": " ",
 
-# print(df.columns)
-# exit()
+    "air conditioning": "AC:Yes",
+    "ac": "AC:Yes",
 
-categorical_cols = ["Campus", "Type", "Occupancy"]
-# numeric_cols = ["Occupancy"]      //for numeric categories
+    "residence hall": "Dorm",
+    
+    "two person": "double",
 
-encoder = OneHotEncoder(sparse_output=False, handle_unknown='ignore')
-X_cat = encoder.fit_transform(df[categorical_cols])
+    "first year": "first-year",
+    "freshmen": "first-year",
+    
+    "elevator": "Elevator:Yes",
+    
+    "private kitchen": "Kitchen:Private",
+    "communal kitchen": "Kitchen:Communal",
 
-# X_num = df[numeric_cols].to_numpy()  
+    "private bathroom": "Bathroom:Private",
+    "communal bathroom": "Bathroom:Communal",
+    
+    "open during break": "Open_During_Breaks:Yes",
+    "closed during break": "Open_During_Breaks:No",
+}
 
-# X = np.hstack([X_cat, X_num])
 
 
+def load():
+    global df, vectorizer, categorical_cols, numerical_cols, feature_df, preprocess, feature_matrix, text_matrix
+    df = pd.read_csv("data/processed/merge_data.csv")
+    # creating description col and what each value means
+    df['description'] = df.apply(
+        lambda row: f"{row['Campus']} {row['Dorm_Name']} {row['Type']} "
+                    f"Room_Style:{row['Room_Style']} AC:{row['AC']} Bathroom:{row['Bathroom']} "
+                    f"Kitchen:{row['Kitchen']} Elevator:{row['Elevator']} Open_During_Breaks:{row['Open_During_Breaks']}", axis=1
+    )
+    vectorizer = TfidfVectorizer(lowercase=True)
+    text_matrix = vectorizer.fit_transform(df['description'])
 
-def parse_query(query):
+    categorical_cols = ["Campus", "Dorm_Name", "Type", "Availability", "Room_Style", "AC", "Bathroom", "Kitchen", "Elevator", "Open_During_Breaks"]
+    numerical_cols = ["Number_Students", "Floors", "Average_Room_Size", "Occupancy"]
+    df[categorical_cols] = df[categorical_cols].astype('string')
+
+    for col in numerical_cols:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    df[categorical_cols] = df[categorical_cols].fillna("Unknown")
+    # replace unknowns with mean so they dont impact results
+    df[numerical_cols] = df[numerical_cols].fillna(df[numerical_cols].mean())
+    feature_df = df[categorical_cols + numerical_cols]
+    preprocess = ColumnTransformer([
+        ("cat", OneHotEncoder(handle_unknown="ignore"), categorical_cols),
+        ("num", StandardScaler(), numerical_cols)
+
+    ])
+
+    X = preprocess.fit_transform(feature_df)
+    feature_matrix = X.toarray()
+
+
+def encode_query(query_dict, top_k=5):
+    q = pd.DataFrame([ {col: None for col in feature_df.columns}])
+    q[categorical_cols] = q[categorical_cols].astype('string')
+    q[numerical_cols] = q[numerical_cols].astype("float64")
+
+    
+    for key, val in query_dict.items():
+        if key in q.columns:
+            q.at[0, key] = val
+
+    for col in categorical_cols:
+        q[col] = q[col].fillna("Unknown")
+
+    for col in numerical_cols:
+        q[col] = q[col].fillna(df[col].mean())
+
+    q_vec = preprocess.transform(q).toarray()
+    return q_vec
+
+
+def search(query_dict, top_k=5):
+
+    q_vec = encode_query(query_dict, top_k=top_k)
+    sim = cosine_similarity(q_vec, feature_matrix)[0]
+    idx = np.argsort(sim)[::-1][:top_k]
+    results = df.iloc[idx].assign(similarity=sim[idx])
+    return results
+
+# basic nlp search
+def encode_query_nlp(query):
+    # convert to numeric vector
+    return vectorizer.transform([query])
+
+def preprocess_query(query):
     query = query.lower()
 
-    q = {
-        "Campus": "Unknown",
-        "Type": "Unknown",
-        "Occupancy": "Unknown"
-    }
+    # query term replacement - edit term_map
+    for term, replacement in term_map.items():
+        query = query.replace(term, replacement)
 
-    if "busch" in query: q["Campus"] = "Busch"
-    if "livi" in query: q["Campus"] = "Livingston"
-    if "cook" in query or "doug" in query: q["Campus"] = "Cook/Douglass"
-    if "college" in query: q["Campus"] = "College Ave"
+    return query
 
-    if "apartment" in query: q["Type"] = "Apartment"
-    if "dorm" in query: q["Type"] = "Dorm"
+def search_nlp(query, top_k=5):
+    load()
+    query = preprocess_query(query)
+    q_vec = encode_query_nlp(query)
+    sim = cosine_similarity(q_vec, text_matrix).flatten()
 
-    if "four" in query or "4" in query: q["Occupancy"] = "4"
-    if "two" in query or "2" in query: q["Occupancy"] = "2"
+    idx = np.argsort(sim)[::-1][:top_k]
+    similarityscore = df.iloc[idx].copy()
+    similarityscore['similarity'] = sim[idx]
 
-    print(q)
+    bonus = exact_match_bonus(query.lower(), df, weight=1.0)
+    final_score = sim + bonus
+    idx = np.argsort(final_score)[::-1][:top_k]
+    results = df.iloc[idx].copy()
+    results['score'] = final_score[idx]
+    results = results.merge(similarityscore, how="left")
+    return results
 
-    return q
+# rewards exact matches
+def exact_match_bonus(query, df, weight=1.0):
+    query_tokens = query.split()
 
-def query_to_vector(parsed):
-    temp_df = pd.DataFrame([parsed])
-    query_cat = encoder.transform(temp_df[categorical_cols])
-    # query_num = temp_df[numeric_cols].to_numpy()
-    return query_cat
+    # print(matched_keywords(query_tokens, df))
 
-def get_ranked_results(query):
-    parsed = parse_query(query)
-    query_vector = query_to_vector(parsed)
-    similarity = cosine_similarity(query_vector, X_cat)[0]
+    bonus = np.zeros(len(df))
+    for token in query_tokens:
+        bonus += df['description'].str.contains(token, case=False, regex=False).astype(float)
+    return bonus * weight
 
-    df["similarity"] = similarity
-    return df.sort_values("similarity", ascending=False)
+# for testing which keywords were matched
+def matched_keywords(query_tokens, df):
+    # print(query_tokens)
+    matched = []
+    for desc in df['description']:
+        desc_lower = desc.lower()
+        matched_tokens = [token for token in query_tokens if token in desc_lower]
+        matched.append(matched_tokens)
+    return matched

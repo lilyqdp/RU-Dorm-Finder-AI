@@ -4,9 +4,7 @@ from src.parser import *
 # y = query_to_vector(x)
 # print(y)
 
-# z = get_ranked_results("two person busch dorm ")
-# print(z)
+# z = search({"AC": "Yes", "Campus": "Busch"}, 999)
+z = search_nlp("private", 30)
 
-scraped_file = "data/processed/machineinput_rutgers_dorms.csv"
-df_scraped = pd.read_csv(scraped_file)
-print(df_scraped.loc[1, "Features"])
+print(z)
