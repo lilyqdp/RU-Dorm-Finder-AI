@@ -40,4 +40,7 @@ def merge_data():
         print(f"Saved: {out_file}")
 
     except Exception as e:
-        print("⚠️ MERGE ERROR:", e)
+        print("⚠️  MERGE ERROR:", e)
+
+        print("\n⚠️  No data! Try '2. Sort Machine Input' first.")
+
