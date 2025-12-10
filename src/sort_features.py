@@ -22,29 +22,36 @@ def sort_features(text):
             for line in text.splitlines():
                 feat = line.strip()
                 if feat.startswith(kw + ":"):
+                    # removes inconsistent '"' in "Average Room Size" and extra "Student/Students" in "Availability"
                     feat = feat.replace('"', '').replace(' Students', '').replace(' Student', '')
+                    # removes thousands separator comma in Number of Students
                     if kw == "Number of Students":
                         feat = feat.replace(',', '')
+                    # removes inconsistent SquareFeet usage in Room Size to make it consistent
                     if kw == "Average Room Size":
                         feat = feat.replace(' ', '').replace('SquareFeet', '')
+                    # finds the first number in Number of Floors and uses that as the number of floors -- some have values like "Up to 7" which becomes just 7
                     if kw == "Number of Floors":
                         first_number = re.search(r"\d+", feat)
                         extracted[kw] = first_number.group() if first_number else None
                         matched = True
                         continue
-
+                    # regex that identifies when the average room size shows dimensions rather than square feet, then converts to square feet to make consistent.
+                    
                     feat = re.sub(r'(\d+)x(\d+)', lambda m: str(int(m.group(1)) * int(m.group(2))), feat)
                     extracted[kw] = feat.split(":", 1)[1].strip()
                     matched = True
                     # print("Matched " + kw)
                     continue
+
+                # if Elevator is mentioned set elevator attribute to yes
                 if "Elevator" in line:
-                    # print("WOO YEAH BABY")
+                    # print("yippe")
                     extracted["Elevator"] = "Yes"
 
 
 
-        # print("🔥 sort done fire emoji")
+        # print("🔥 sort done")
 
         rename_map = {
                 "Type of Residence Hall": "Type",

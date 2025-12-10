@@ -21,10 +21,16 @@ term_map = {
 
     "air conditioning": "ACYes",
     " ac ": " ACYes ",
+    "air cooling": "ACAir Cooled",
 
+    "apartments": "apartment",
     "apartments": "TypeApartment",
+    "residence halls": "residence hall",
+    "dorms": "dorm",
+    "dorm": "TypeDorm",
     "residence hall": "TypeDorm",
-    "dorms": "TypeDorm",
+    "suites": "suite",
+    "suite": "TypeSuite",
     
     "two person": "double",
     "single": "RoomStylesingle",
@@ -35,10 +41,11 @@ term_map = {
     
     "elevators": "elevator",
     "elevator": "ElevatorYes",
-    
-    "private kitchen": "KitchenYes",
-    "communal kitchen": "KitchenCommunal",
+    "kitchens": "kitchen",
+    "communal kitchen": "Kz",
     "kitchen": "KitchenYes",
+    "Kz": "KitchenCommunal",
+
 
     "bathrooms": "bathroom",
     "private bathroom": "BathroomPrivate",
@@ -47,8 +54,6 @@ term_map = {
     "breaks": "break",
     "open during break": "BreakYes",
     "closed during break": "BreakNo"
-
-    
 }
 
 
@@ -131,9 +136,7 @@ def preprocess_query(query):
     return query
 
 def search_nlp(query, top_k=5):
-
     load()
-
 
     query = preprocess_query(query)
     print(f"Keywords: {query}")
@@ -144,8 +147,6 @@ def search_nlp(query, top_k=5):
     idx = np.argsort(sim)[::-1][:top_k]
     similarityscore = df.iloc[idx].copy()
     similarityscore['similarity'] = sim[idx]
-
-
 
     bonus = 0
     # optional bonus for exact match, buggy
@@ -160,10 +161,7 @@ def search_nlp(query, top_k=5):
 # rewards exact matches
 def exact_match_bonus(query, df, weight=1.0):
     query_tokens = query.split()
-
-
     # print(matched_keywords(query, df))
-
     bonus = np.zeros(len(df))
     for token in query_tokens:
         bonus += df['description'].str.contains(token, case=False, regex=False).astype(float)
@@ -171,7 +169,6 @@ def exact_match_bonus(query, df, weight=1.0):
 
 # for testing which keywords were matched
 def matched_keywords(query, df):
-    
     query_tokens = query.split()
     # print(query_tokens)
     matched = []
