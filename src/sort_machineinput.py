@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 from sort_features import sort_features
+import os
 
 def normalize(name: str):
     name = name.lower()
@@ -10,6 +11,9 @@ def normalize(name: str):
 def sort_machineinput():
 
     path = "data/processed/scraped_data.csv"
+    if os.path.getsize(path) == 0:
+        print("\n⚠️  No data! Try '1. Scrape Dorm Data' first.")
+        return None
     df = pd.read_csv(path)
 
     desired_campus_order = [

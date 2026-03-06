@@ -5,43 +5,69 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
+import os
 
 # insert any query term replacements here
 term_map = {
     "-": " ",
 
-    "air conditioning": "AC:Yes",
-    "ac": "AC:Yes",
+    "college avenue": "CampusCollege Ave",
+    "livingston": "CampusLivingston",
+    "busch": "CampusBusch",
+    "cook": "c/d",
+    "douglass": "c/d",
+    "doug": "c/d",
+    "c/d": "CampusCook/Douglass",
 
-    "residence hall": "Dorm",
+    "air conditioning": "ACYes",
+    " ac ": " ACYes ",
+    "air cooling": "ACAir Cooled",
+
+    "apartments": "apartment",
+    "apartments": "TypeApartment",
+    "residence halls": "residence hall",
+    "dorms": "dorm",
+    "dorm": "TypeDorm",
+    "residence hall": "TypeDorm",
+    "suites": "suite",
+    "suite": "TypeSuite",
     
     "two person": "double",
+    "single": "RoomStylesingle",
+    "double": "RoomStyledouble",
 
-    "first year": "first-year",
-    "freshmen": "first-year",
+    "first year": "First-year",
+    "freshmen": "First-year",
     
-    "elevator": "Elevator:Yes",
-    
-    "private kitchen": "Kitchen:Private",
-    "communal kitchen": "Kitchen:Communal",
+    "elevators": "elevator",
+    "elevator": "ElevatorYes",
+    "kitchens": "kitchen",
+    "communal kitchen": "Kz",
+    "kitchen": "KitchenYes",
+    "Kz": "KitchenCommunal",
 
-    "private bathroom": "Bathroom:Private",
-    "communal bathroom": "Bathroom:Communal",
+
+    "bathrooms": "bathroom",
+    "private bathroom": "BathroomPrivate",
+    "communal bathroom": "BathroomCommunal",
     
-    "open during break": "Open_During_Breaks:Yes",
-    "closed during break": "Open_During_Breaks:No",
+    "breaks": "break",
+    "open during break": "BreakYes",
+    "closed during break": "BreakNo"
 }
 
 
 
 def load():
     global df, vectorizer, categorical_cols, numerical_cols, feature_df, preprocess, feature_matrix, text_matrix
+
+    
     df = pd.read_csv("data/processed/merge_data.csv")
     # creating description col and what each value means
     df['description'] = df.apply(
-        lambda row: f"{row['Campus']} {row['Dorm_Name']} {row['Type']} "
-                    f"Room_Style:{row['Room_Style']} AC:{row['AC']} Bathroom:{row['Bathroom']} "
-                    f"Kitchen:{row['Kitchen']} Elevator:{row['Elevator']} Open_During_Breaks:{row['Open_During_Breaks']}", axis=1
+        lambda row: f"Campus{row['Campus']} {row['Dorm_Name']} Type{row['Type']} "
+                    f"RoomStyle{row['Room_Style']} AC{row['AC']} Bathroom{row['Bathroom']} "
+                    f"Kitchen{row['Kitchen']} Elevator{row['Elevator']} Break{row['Open_During_Breaks']}", axis=1
     )
     vectorizer = TfidfVectorizer(lowercase=True)
     text_matrix = vectorizer.fit_transform(df['description'])
@@ -111,7 +137,10 @@ def preprocess_query(query):
 
 def search_nlp(query, top_k=5):
     load()
+
     query = preprocess_query(query)
+    print(f"Keywords: {query}")
+    # print(matched_keywords(query, df))
     q_vec = encode_query_nlp(query)
     sim = cosine_similarity(q_vec, text_matrix).flatten()
 
@@ -119,7 +148,9 @@ def search_nlp(query, top_k=5):
     similarityscore = df.iloc[idx].copy()
     similarityscore['similarity'] = sim[idx]
 
-    bonus = exact_match_bonus(query.lower(), df, weight=1.0)
+    bonus = 0
+    # optional bonus for exact match, buggy
+    # bonus = exact_match_bonus(query.lower(), df, weight=1.0)
     final_score = sim + bonus
     idx = np.argsort(final_score)[::-1][:top_k]
     results = df.iloc[idx].copy()
@@ -130,20 +161,20 @@ def search_nlp(query, top_k=5):
 # rewards exact matches
 def exact_match_bonus(query, df, weight=1.0):
     query_tokens = query.split()
-
-    # print(matched_keywords(query_tokens, df))
-
+    # print(matched_keywords(query, df))
     bonus = np.zeros(len(df))
     for token in query_tokens:
         bonus += df['description'].str.contains(token, case=False, regex=False).astype(float)
     return bonus * weight
 
 # for testing which keywords were matched
-def matched_keywords(query_tokens, df):
+def matched_keywords(query, df):
+    query_tokens = query.split()
     # print(query_tokens)
     matched = []
-    for desc in df['description']:
+    for idx, desc in enumerate(df['description']):
         desc_lower = desc.lower()
         matched_tokens = [token for token in query_tokens if token in desc_lower]
-        matched.append(matched_tokens)
+        if matched_tokens:
+            matched.append((df.iloc[idx]['Dorm_Name'], matched_tokens))
     return matched

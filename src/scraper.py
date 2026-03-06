@@ -52,6 +52,7 @@ def scrape_campus(campus_name, campus_url):
 
 
                 full_text = dorm_soup.get_text(" ", strip=False)
+                
                 start_index = full_text.find(start_kw)
                 # print(start_index)
                 end_index   = full_text.find(end_kw)

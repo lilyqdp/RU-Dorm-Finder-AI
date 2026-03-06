@@ -1,0 +1,52 @@
+Campus,Dorm_Name,Elevator,Number_Students,Floors,Average_Room_Size,Availability
+Busch,Allen Hall,No,217,4.0,216,First-Year
+Busch,Barr Hall,No,220,4.0,216,First-Year
+Busch,B.E.S.T Neighborhood,Yes,499,4.0,273,First-Year
+Busch,Buell Apartments,No,348,3.0,135,Graduate
+Busch,Crosby Suites,Yes,177,4.0,216,Continuing
+Busch,Johnson Apartments,No,136,2.0,110,Graduate
+Busch,Judson Suites,Yes,177,4.0,216,Continuing
+Busch,Marvin Apartments,No,100,3.0,165,Living with Families
+Busch,Mattia Hall,No,221,4.0,216,First-Year
+Busch,McCormick Suites,Yes,288,10.0,216,"Continuing, First-Year, Honors"
+Busch,Metzger Hall,No,220,4.0,216,"Continuing, First-Year"
+Busch,Morrow Suites,No,177,4.0,216,"Continuing, First-Year"
+Busch,Nichols Apartments,No,237,3.0,198,Continuing
+Busch,Richardson Apartments,No,522,3.0,198,Continuing
+Busch,Silvers Apartments,No,475,4.0,192,Continuing
+Busch,Thomas Suites,Yes,177,4.0,216,Continuing
+Busch,Winkler Suites,Yes,177,4.0,216,Continuing
+Livingston,Livingston Apartments,Yes,1488,7.0,Varies,"Continuing, Graduate"
+Livingston,Lynton Towers North,Yes,343,7.0,Varies,"Continuing, First-Year"
+Livingston,Lynton Towers South,Yes,343,7.0,Varies,"Continuing, First-Year"
+Livingston,Quad I,No,468,5.0,210,"Continuing, First-Year"
+Livingston,Quad II,No,505,5.0,210,"Continuing, First-Year"
+Livingston,Quad III,No,494,5.0,210,"Continuing, First-Year"
+College Ave,Brett Hall,Yes,216,,192,"Continuing, Honors"
+College Ave,Campbell Hall,Yes,328,6.0,228,First-Year
+College Ave,Clothier Hall,Yes,378,8.0,192,Continuing
+College Ave,Demarest Hall,No,170,3.0,Varies,"Continuing, First-Year"
+College Ave,Frelinghuysen Hall,Yes,328,6.0,228,First-Year
+College Ave,Hardenbergh Hall,Yes,328,6.0,228,Continuing
+College Ave,Hegeman Hall,No,73,3.0,Varies,Continuing
+College Ave,Honors College,Yes,542,5.0,Varies,First-Year Honors College
+College Ave,Leupp Hall,No,39,3.0,198,Continuing
+College Ave,Mettler Hall,Yes,202,4.0,192,"Continuing, First-Year"
+College Ave,Pell Hall,No,60,3.0,228,Continuing
+College Ave,Sojourner Truth Apartments,Yes,436,,Varies,Continuing
+College Ave,Stonier Hall,Yes,170,5.0,192,"Continuing, First-Year"
+College Ave,Tinsley Hall,Yes,203,4.0,192,First-Year
+College Ave,University Center at Easton Avenue,Yes,649,12.0,216,Continuing
+College Ave,Wessels Hall,No,60,3.0,228,Continuing
+Cook/Douglass,Helyar House,No,40,2.0,180,"Continuing, First-Year"
+Cook/Douglass,Henderson Apartments,No,274,4.0,192,Continuing
+Cook/Douglass,Jameson Hall,Yes,280,2.0,Varies,Continuing
+Cook/Douglass,Katzenbach Hall,Yes,236,4.0,154,First-Year
+Cook/Douglass,Lippincott Hall,Yes,238,4.0,154,First-Year
+Cook/Douglass,New Gibbons,No,442,3.0,208,"Continuing, First-Year"
+Cook/Douglass,Newell Apartments,No,982,2.0,143,Continuing
+Cook/Douglass,Nicholas Hall,No,230,3.0,176,"First-Year, Transfer"
+Cook/Douglass,Perry Hall,No,174,4.0,198,First-Year
+Cook/Douglass,Starkey Apartments,No,384,3.0,198,"Continuing, Graduate"
+Cook/Douglass,Voorhees Residence Hall,No,222,4.0,176,First-Year
+Cook/Douglass,Woodbury Bunting-Cobb Hall,No,228,3.0,176,"Continuing, First-Year"
