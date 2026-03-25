@@ -1,4 +1,4 @@
-# DormFinder AI
+# Scarlet Housing Hub
 A Feature-Based Housing Recommendation System for Rutgers University
 
 Authors: Lily Del Pilar, Charley Yang
